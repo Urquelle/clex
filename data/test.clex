@@ -1,10 +1,15 @@
-fun outer() {
-    var x = "outside";
-    fun inner() {
-        print x;
+class CoffeeMaker {
+    init(coffee) {
+        this.coffee = coffee;
     }
 
-    inner();
+    brew() {
+        print "Enjoy your cup of " + this.coffee;
+
+        // No reusing the grounds!
+        this.coffee = nil;
+    }
 }
 
-outer();
+var maker = CoffeeMaker("coffee and chicory");
+maker.brew();
